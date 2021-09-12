@@ -6,6 +6,9 @@ interface InterfaceProperties {
 
 interface InterfaceMethods {
     fun description()
+    fun sayHello(name : String) : String{
+        return "Hello $name"
+    }
 }
 
 class MultipleInterface : InterfaceProperties, InterfaceMethods {
@@ -16,9 +19,14 @@ class MultipleInterface : InterfaceProperties, InterfaceMethods {
     {
         println("Multiple Interfaces implemented with $a and $b")
     }
+
+    override fun sayHello(name: String) : String{
+        return "${super.sayHello(name)} have been overrided"
+    }
 }
 fun main()
 {
     val obj = MultipleInterface()
     obj.description()
+    println(obj.sayHello("Hòa"))
 }
